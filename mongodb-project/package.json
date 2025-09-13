@@ -1,0 +1,16 @@
+{
+  "name": "mongodb-project",
+  "version": "1.0.0",
+  "description": "A project to demonstrate MongoDB connection using Node.js and Express.",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.9",
+    "mongodb": "^3.6.3"
+  },
+  "author": "",
+  "license": "ISC"
+}

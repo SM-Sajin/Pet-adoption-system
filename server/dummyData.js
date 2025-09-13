@@ -28,9 +28,9 @@ const DUMMY_USERS = [
     isAdmin: false
   },
   {
-    name: 'Admin User',
-    email: 'admin@example.com',
-    password: 'admin123',
+    name: 'Admin',
+    email: 'admin@gmail.com',
+    password: '123456',
     phone: '1111111111',
     isAdmin: true
   }

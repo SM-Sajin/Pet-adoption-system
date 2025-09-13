@@ -160,7 +160,7 @@ const getAllPets = async (req, res) => {
 const getPetById = async (req, res) => {
   try {
     const pet = await Pet.findById(req.params.id)
-      .populate('owner', 'name email phone')
+      .populate('owner', 'name email phone averageRating totalReviews')
       .populate('wishlistedBy', 'name');
 
     if (!pet) {

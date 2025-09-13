@@ -51,11 +51,21 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/pets', require('./routes/pets'));
 app.use('/api/adoptions', require('./routes/adoptions'));
 app.use('/api/discounts', require('./routes/discounts'));
+app.use('/api/chat', require('./routes/chat'));
+app.use('/api/reviews', require('./routes/reviews'));
+app.use('/api/chat', require('./routes/chat'));
+app.use('/api/adoption-messages', require('./routes/adoptionMessages'));
 // app.use('/api/users', require('./routes/users'));
 
 // Socket.io connection handling
 io.on('connection', (socket) => {
   console.log('A user connected:', socket.id);
+  // Allow client to identify as user for direct messages
+  socket.on('auth:identify', (userId) => {
+    try {
+      socket.join(String(userId));
+    } catch (e) {}
+  });
   
   socket.on('disconnect', () => {
     console.log('User disconnected:', socket.id);
@@ -73,7 +83,7 @@ app.use('*', (req, res) => {
   res.status(404).json({ message: 'Route not found' });
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5050;
 
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
